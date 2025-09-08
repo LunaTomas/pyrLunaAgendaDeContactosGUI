@@ -22,6 +22,11 @@ namespace pyrLunaAgendaDeContactosGUI
             String Contacto = txtContacto.Text;
             int Numero = Convert.ToInt32(mskNumero.Text);
             lstRegistro.Items.Add(Contacto + " - " + Numero);
+            txtContacto.Text = "";
+            mskNumero.Text = "";
+            txtContacto.Focus();
+            lblCantidad.Text = "Cantidad de contactos: " + lstRegistro.Items.Count;
+            lblFechaYHora.Text = "Fecha y hora: " + DateTime.Now;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
