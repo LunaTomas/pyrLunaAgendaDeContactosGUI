@@ -19,9 +19,14 @@ namespace pyrLunaAgendaDeContactosGUI
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            String Contacto = txtContacto.Text;
-            int Numero = Convert.ToInt32(mskNumero.Text);
-            lstRegistro.Items.Add(Contacto + " - " + Numero);
+            String vContacto = txtContacto.Text;
+            String vNumero = mskNumero.Text;
+            lstRegistro.Items.Add(vContacto + " - " + vNumero);
+            lblCantidad.Text = "Cantidad de contactos: " + lstRegistro.Items.Count.ToString();
+            lblFechaYHora.Text = "Fecha y hora: " + DateTime.Now.ToString();
+            txtContacto.Text = "";
+            mskNumero.Text = "";
+            txtContacto.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
