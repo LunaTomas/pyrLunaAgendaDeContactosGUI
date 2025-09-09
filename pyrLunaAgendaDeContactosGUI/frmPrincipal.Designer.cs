@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             lstRegistro = new ListBox();
             mskNumero = new MaskedTextBox();
             btnCancelar = new Button();
@@ -36,6 +37,8 @@
             txtContacto = new TextBox();
             lblNumero = new Label();
             lblContacto = new Label();
+            lblCantidad = new Label();
+            lblFechaYHora = new Label();
             SuspendLayout();
             // 
             // lstRegistro
@@ -49,14 +52,15 @@
             // 
             // mskNumero
             // 
+            mskNumero.Enabled = false;
             mskNumero.Font = new Font("Segoe UI", 16F);
             mskNumero.Location = new Point(124, 104);
-            mskNumero.Mask = "999999999";
+            mskNumero.Mask = "(000)000-0000";
             mskNumero.Name = "mskNumero";
             mskNumero.PromptChar = ' ';
             mskNumero.Size = new Size(232, 36);
             mskNumero.TabIndex = 2;
-            mskNumero.ValidatingType = typeof(int);
+            mskNumero.TextChanged += mskNumero_TextChanged;
             // 
             // btnCancelar
             // 
@@ -71,6 +75,7 @@
             // 
             // btnRegistrar
             // 
+            btnRegistrar.Enabled = false;
             btnRegistrar.Font = new Font("Segoe UI", 16F);
             btnRegistrar.Location = new Point(241, 146);
             btnRegistrar.Name = "btnRegistrar";
@@ -97,6 +102,7 @@
             txtContacto.Name = "txtContacto";
             txtContacto.Size = new Size(232, 36);
             txtContacto.TabIndex = 1;
+            txtContacto.TextChanged += txtContacto_TextChanged;
             // 
             // lblNumero
             // 
@@ -118,11 +124,33 @@
             lblContacto.TabIndex = 9;
             lblContacto.Text = "Contacto";
             // 
+            // lblCantidad
+            // 
+            lblCantidad.AutoSize = true;
+            lblCantidad.Font = new Font("Segoe UI", 16F);
+            lblCantidad.Location = new Point(18, 390);
+            lblCantidad.Name = "lblCantidad";
+            lblCantidad.Size = new Size(228, 30);
+            lblCantidad.TabIndex = 17;
+            lblCantidad.Text = "Cantidad de contactos";
+            // 
+            // lblFechaYHora
+            // 
+            lblFechaYHora.AutoSize = true;
+            lblFechaYHora.Font = new Font("Segoe UI", 16F);
+            lblFechaYHora.Location = new Point(18, 420);
+            lblFechaYHora.Name = "lblFechaYHora";
+            lblFechaYHora.Size = new Size(136, 30);
+            lblFechaYHora.TabIndex = 18;
+            lblFechaYHora.Text = "Fecha y hora";
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(374, 404);
+            ClientSize = new Size(374, 482);
+            Controls.Add(lblFechaYHora);
+            Controls.Add(lblCantidad);
             Controls.Add(lstRegistro);
             Controls.Add(mskNumero);
             Controls.Add(btnCancelar);
@@ -131,7 +159,9 @@
             Controls.Add(txtContacto);
             Controls.Add(lblNumero);
             Controls.Add(lblContacto);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agenda";
             ResumeLayout(false);
             PerformLayout();
@@ -147,5 +177,7 @@
         private TextBox txtContacto;
         private Label lblNumero;
         private Label lblContacto;
+        private Label lblCantidad;
+        private Label lblFechaYHora;
     }
 }
